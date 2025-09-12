@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_edittext"
                 android:layout_marginTop="12dp"
-                android:minHeight="42dp"/>
+                android:minHeight="48dp"/>
 
             <!-- Button -->
             <com.google.android.material.button.MaterialButton
