@@ -43,19 +43,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="29dp"
-                android:text="Email"
+                android:text="Username"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black" />
 
             <!-- Email Input Area -->
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextTextUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/custom_edittext"
-                android:hint="Enter your email"
+                android:hint="Enter your username"
                 android:inputType="textEmailAddress"
                 android:padding="12dp" />
 
