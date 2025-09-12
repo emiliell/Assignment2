@@ -22,6 +22,9 @@ interface ApiService {
     suspend fun dashboard(@Path("keypass") keypass: String
     ): DashboardResponse
 
+    @GET("objects")
+    suspend fun getAllObjects(): List<ResponseItem>
+
 }
 
 data class KeypassResponse(val keypass:String)

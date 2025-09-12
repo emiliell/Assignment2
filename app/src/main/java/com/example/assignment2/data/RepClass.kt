@@ -12,4 +12,6 @@ class RepClass @Inject constructor(private val apiService: ApiService){
     suspend fun getDashboard(keypass: String): DashboardResponse{
         return apiService.dashboard(keypass)
     }
+
+    suspend fun getAllObjectsData() = apiService.getAllObjects()
 }
