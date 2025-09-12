@@ -16,17 +16,25 @@ interface ApiService {
     suspend fun login(
         @Path("campus") campus: String,
         @Body body: Map<String, String>
-    )
+    ) : KeypassResponse
 
 
-    @GET("objects")
-    suspend fun getAllObjects(): List<ResponseItem>
+    @GET("dashboard/{keypass}")
+    suspend fun getDashboard(@Path("keypass") keypass: String
+    ): DashboardResponse
 
 }
 
+data class KeypassResponse(val keypass:String)
+data class DashboardResponse(val ResponseItems: List<ResponseItem>)
+
 @Parcelize
 data class ResponseItem(
-    @Json(name = "data") val dataSection: Map<String, String>?,
-    @Json(name = "id")   val id: String,
-    @Json(name = "name") val objectName: String
+    @Json(name = "artistName") val artist_name: String?,
+    @Json(name = "albumTitle")   val album_title: String,
+    @Json(name = "releaseYear") val release_year: Int?,
+    @Json(name = "genre") val genre: String?,
+    @Json(name = "trackCount")   val track_count: Int?,
+    @Json(name = "Description") val description: String?,
+    @Json(name = "popularTrack") val popular_track: String?,
 ): Parcelable
