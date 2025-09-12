@@ -1,4 +1,4 @@
-package com.example.assignment2.ui
+package com.example.assignment2.ui.recyclerview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
