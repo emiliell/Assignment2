@@ -15,7 +15,7 @@
         android:layout_marginBottom="16dp">
 
         <TextView
-            android:id="@+id/itemNametext"
+            android:id="@+id/itemArtistNametext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -25,19 +25,68 @@
             android:textColor="#303F9F"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Name" />
+            tools:text="Artist Name: Kendrick Lamar" />
 
         <TextView
-            android:id="@+id/itemIdText"
+            android:id="@+id/itemAlbumTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text=""
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="#303F9F"
-            app:layout_constraintStart_toStartOf="@id/itemNametext"
-            app:layout_constraintTop_toBottomOf="@id/itemNametext"
-            tools:text="ID: 2" />
+            app:layout_constraintStart_toStartOf="@id/itemAlbumTitleText"
+            app:layout_constraintTop_toBottomOf="@id/itemArtistNametext"
+            tools:text="Album Title: GNX" />
+
+        <TextView
+            android:id="@+id/itemReleaseYearText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#303F9F"
+            app:layout_constraintStart_toStartOf="@id/itemAlbumTitleText"
+            app:layout_constraintTop_toBottomOf="@id/itemAlbumTitleText"
+            tools:text="Release Year: 2024" />
+
+        <TextView
+            android:id="@+id/itemGenreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#303F9F"
+            app:layout_constraintStart_toStartOf="@id/itemReleaseYearText"
+            app:layout_constraintTop_toBottomOf="@id/itemReleaseYearText"
+            tools:text="Genre: Hip-Hop" />
+
+        <TextView
+            android:id="@+id/itemTrackCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#303F9F"
+            app:layout_constraintStart_toStartOf="@id/itemGenreText"
+            app:layout_constraintTop_toBottomOf="@id/itemGenreText"
+            tools:text="Track Count: 12" />
+
+        <TextView
+            android:id="@+id/itemPopularTrackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#303F9F"
+            app:layout_constraintStart_toStartOf="@id/itemTrackCountText"
+            app:layout_constraintTop_toBottomOf="@id/itemTrackCountText"
+            tools:text="Popular Track" />
+
 
         <TextView
             android:id="@+id/detailsText"
@@ -47,8 +96,8 @@
             android:text="more details are available"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="#00796B"
-            app:layout_constraintStart_toStartOf="@id/itemIdText"
-            app:layout_constraintTop_toBottomOf="@id/itemIdText"
+            app:layout_constraintStart_toStartOf="@id/itemPopularTrackText"
+            app:layout_constraintTop_toBottomOf="@id/itemPopularTrackText"
             tools:text="More details are available" />
 
         <com.google.android.material.button.MaterialButton
