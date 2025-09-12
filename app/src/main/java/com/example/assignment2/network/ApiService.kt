@@ -30,10 +30,10 @@ data class DashboardResponse(val ResponseItems: List<ResponseItem>)
 @Parcelize
 data class ResponseItem(
     @Json(name = "artistName") val artist_name: String?,
-    @Json(name = "albumTitle")   val album_title: String,
-    @Json(name = "releaseYear") val release_year: Int?,
+    @Json(name = "albumTitle")   val album_title: String?,
+    @Json(name = "releaseYear") val release_year: String?,
     @Json(name = "genre") val genre: String?,
-    @Json(name = "trackCount")   val track_count: Int?,
+    @Json(name = "trackCount")   val track_count: String?,
     @Json(name = "Description") val description: String?,
     @Json(name = "popularTrack") val popular_track: String?
 ): Parcelable
