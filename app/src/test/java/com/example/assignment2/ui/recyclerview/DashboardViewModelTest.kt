@@ -57,6 +57,7 @@ class DashboardViewModelTest {
     @Test
     fun `test ViewModel calls API and updates StateFlow on init`() = runTest(testDispatcher) {
         // The ViewModel's init() method is called during setup @Before when after viewmodel is created
+        viewModel.loadDashboard("mocked_keypass")
 
         // Advance time to allow the ViewModel's coroutine to execute
         advanceUntilIdle()
