@@ -28,7 +28,12 @@ interface ApiService {
 }
 
 data class KeypassResponse(val keypass:String)
-data class DashboardResponse(val ResponseItems: List<ResponseItem>)
+//data class DashboardResponse(val ResponseItems: List<ResponseItem>)
+
+data class DashboardResponse(
+    @Json(name = "entities") val entities: List<ResponseItem>,
+    @Json(name = "entitiesTotal") val entities_total: Int?
+)
 
 @Parcelize
 data class ResponseItem(
@@ -37,6 +42,6 @@ data class ResponseItem(
     @Json(name = "releaseYear") val release_year: String?,
     @Json(name = "genre") val genre: String?,
     @Json(name = "trackCount")   val track_count: String?,
-    @Json(name = "Description") val description: String?,
+    @Json(name = "description") val description: String?,
     @Json(name = "popularTrack") val popular_track: String?
 ): Parcelable
