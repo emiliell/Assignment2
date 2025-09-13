@@ -32,7 +32,7 @@ data class KeypassResponse(val keypass:String)
 
 data class DashboardResponse(
     @Json(name = "entities") val entities: List<ResponseItem>,
-    @Json(name = "entitiesTotal") val entities_total: Int?
+    @Json(name = "entityTotal") val entity_total: Int?
 )
 
 @Parcelize
