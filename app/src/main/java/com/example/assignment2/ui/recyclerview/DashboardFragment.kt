@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment2.R
 import com.example.assignment2.network.ResponseItem
@@ -22,6 +23,7 @@ import kotlinx.coroutines.launch
 class DashboardFragment : Fragment() {
 
     private val viewModel: DashboardViewModel by viewModels()
+    private val args: DashboardFragmentArgs by navArgs()
     private lateinit var navigationFunctionLambda: (ResponseItem) -> Unit
     private lateinit var recyclerViewAdapter: MyRecyclerViewAdapter
 
@@ -36,9 +38,11 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        navigationFunctionLambda = {
+        val keypass = args.keypass
+
+        navigationFunctionLambda = { item ->
             findNavController().navigate(
-                DashboardFragmentDirections.actionDashboardFragmentToDetailsFragment()
+                DashboardFragmentDirections.actionDashboardFragmentToDetailsFragment(item)
             )
         }
         recyclerViewAdapter = MyRecyclerViewAdapter(navigationFunction = navigationFunctionLambda)
@@ -46,7 +50,7 @@ class DashboardFragment : Fragment() {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-
+                viewModel.loadDashboard(keypass)
                 viewModel.apiResponseObjects.collect { listOfResponseItems ->
                     recyclerViewAdapter.setData(listOfResponseItems)
                 }
