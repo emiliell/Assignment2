@@ -18,7 +18,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.assignment2.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="details"
+            app:argType="com.example.assignment2.network.ResponseItem"/>
+    </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.assignment2.ui.recyclerview.DashboardFragment"
@@ -27,5 +31,11 @@
         <action
             android:id="@+id/action_dashboardFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <argument
+            android:name="keypass"
+            app:argType="string"/>
+        <argument
+            android:name="campus"
+            app:argType="string"/>
     </fragment>
 </navigation>
