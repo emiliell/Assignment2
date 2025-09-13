@@ -7,18 +7,20 @@ import com.example.assignment2.network.ApiService
 import com.example.assignment2.network.DashboardResponse
 import com.example.assignment2.network.KeypassResponse
 import com.example.assignment2.network.ResponseItem
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class DashboardViewModel @Inject constructor(private val repository: RepClass) : ViewModel() {
 
     val apiResponseObjects = MutableStateFlow<List<ResponseItem>>(listOf())
 
-    init {
+    fun loadDashboard(keypass: String) {
         viewModelScope.launch {
-            val result = repository.getAllObjectsData()
-            apiResponseObjects.value = result
+            val result = repository.getDashboard(keypass)
+            apiResponseObjects.value = result.entities
         }
     }
 }
