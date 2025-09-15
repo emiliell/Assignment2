@@ -7,10 +7,13 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.assignment2.data.RepClass
+import com.example.assignment2.ui.recyclerview.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,6 +23,7 @@ import javax.inject.Inject
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     @Inject lateinit var repo: RepClass
+    private val loginviewModel: LoginViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,11 +44,22 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val passWord = password.text.toString()
 
             viewLifecycleOwner.lifecycleScope.launch {
-                val res = repo.login(campus, userName, passWord)
-                findNavController().navigate(
-                    R.id.action_loginFragment_to_dashboardFragment,
-                    bundleOf("keypass" to res.keypass, "campus" to campus)
-                )
+
+                loginviewModel.login(campus, userName, passWord)
+
+                val error = loginviewModel.loginError.value
+
+                if (error != null) {
+                    Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
+                }
+                else {
+                    val res = repo.login(campus, userName, passWord)
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_dashboardFragment,
+                        bundleOf("keypass" to res.keypass, "campus" to campus)
+                    )
+                }
+
 
             }
 
