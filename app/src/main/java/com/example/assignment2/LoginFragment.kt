@@ -45,9 +45,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             viewLifecycleOwner.lifecycleScope.launch {
 
-                loginviewModel.login(campus, userName, passWord)
-
-                val error = loginviewModel.loginError.value
+                val error = loginviewModel.login(campus, userName, passWord)
 
                 if (error != null) {
                     Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
